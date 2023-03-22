@@ -1,0 +1,13 @@
+.footer{
+    background-color: #FBCCD2;
+}
+
+.footer ul li a{
+    text-decoration: none;
+}
+
+.logoFooter{
+    height: 120px;
+    width: 120px;
+
+}
