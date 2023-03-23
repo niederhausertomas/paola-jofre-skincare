@@ -1,4 +1,5 @@
 
+
 .portada {
     background-color: #FBCCD2;
     min-height: 100vh;
@@ -11,8 +12,13 @@
     text-align: center;
 }
 
-.logoPortada{
-    height: 220px;
-    border: solid 1px rgb(43, 41, 41);
-    margin-bottom: 0px;
-  }
+.PaolaJofrePortada{
+    font-family: 'Noto Serif Georgian', serif;
+    font-size: 5rem;
+    letter-spacing: 1rem;
+}
+
+.SkinCarePortada{
+    font-weight: lighter;
+    font-size: 3rem;
+}
