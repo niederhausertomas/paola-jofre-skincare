@@ -9,11 +9,9 @@
 
 .btnCard{
     background-color: #FBCCD2;
-    border: solid 1px rgb(43, 41, 41);
 }
 
 .btnCard:hover{
-    background-color: #d39ba2;
-    border: solid 1px rgb(43, 41, 41);
+    background-color: #eba5ae;
 }
 

@@ -5,12 +5,12 @@ const Portada = () => {
   return (
     <div className='portada'>
         <h1>
-          <spam className='PaolaJofrePortada'>
+          <span className='PaolaJofrePortada'>
             PAOLA JOFRE
-          </spam> <br/> 
-          <spam className='SkinCarePortada'>
+          </span> <br/> 
+          <span className='SkinCarePortada'>
             Skin Care
-          </spam>
+          </span>
         </h1>
     </div>
   )
