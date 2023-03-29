@@ -1,31 +1,38 @@
 import React from 'react';
 import CartWidget from '../CartWidget/CartWidget';
 import './Navbar.css';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = ({isInHeader}) => {
     if(isInHeader){ 
         return ( 
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <nav className="navbarHeader navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
-                <img className='logoNavBar' src="../logo.jpg" alt="logo" />
+                <Link to="/">
+                    <img className='logoNavBar' src="../logo.jpg" alt="logo" />
+                </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarScroll">
                     <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style={{'--bs-scroll-height': '100px'}}>
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page">Home</a>
+                            <NavLink to="/category/men's clothing" className="nav-link" >men's clothing</NavLink>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" >Link</a>
+                            <NavLink to='/category/jewelery' className="nav-link" >jewelery</NavLink>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link disabled">Link</a>
+                            <NavLink to='/category/electronics' className="nav-link" >electronics</NavLink>
                         </li>
-                        <li>
-                            <CartWidget/>
+                        <li className="nav-item">
+                            <NavLink  to='/about' className="nav-link" aria-current="page">About</NavLink>
                         </li>
+
                     </ul>
+                            <NavLink className='justify-content-end align-items-center text-decoration-none' to="/cart">
+                                <CartWidget/>
+                            </NavLink>
                 </div>
             </div>
         </nav>);
