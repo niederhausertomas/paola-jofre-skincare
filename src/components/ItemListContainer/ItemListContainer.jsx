@@ -1,28 +1,24 @@
-import React from 'react'
-import { products } from '../../Mock/productos'
+import React, {useEffect, useState} from 'react';
+import ItemList from '../ItemList/ItemList';
 
-const ItemListContainer = (prop) => {
+const ItemListContainer = () => {
 
-  const getProducts = () =>{
-    new Promise ((res,rej) => {
-    return products;
-  });
-};
-
-  getProducts()
-    .then((res)=>{
-      console.log(res)
-    })
-    .catch((rej)=>{
-      console.log(rej);
-    })
+  const [items, setItems] = useState([]);
   
+  useEffect(()=>{
+    fetch('https://fakestoreapi.com/products')
+    .then((res) => res.json())
+    .then((res) => setItems(res))
+    .catch((error)=>{
+      console.log(error);
+    })
+  },[]);
 
   return (
-    <h1>
-        {prop.saludo}
-    </h1>
-  )
-}
+    <div className='container'>
+        <ItemList items={items}/>
+    </div>
+  );
+};
 
 export default ItemListContainer

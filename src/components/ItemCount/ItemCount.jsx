@@ -1,8 +1,9 @@
 import { isDisabled } from '@testing-library/user-event/dist/utils';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import './ItemCount.css';
 
-const ItemCount = ({stock, initial, onAdd}) => {
-    const [count, setCount] = useState(initial);
+const ItemCount = ({stock, onAdd}) => {
+    const [count, setCount] = useState(1);
     
     const sumar = ()=>{
         if(count<stock){
@@ -21,11 +22,11 @@ const ItemCount = ({stock, initial, onAdd}) => {
     return (
     <div>
         <div>
-            <button disabled={(count===0)} onClick={(restar)} type="button" className="btn btn-primary">-</button>
+            <button disabled={(count===0)} onClick={(restar)} type="button" className="btn btnCard">-</button>
             {count}
-            <button disabled={(count===stock)} onClick={(sumar)} type="button" className="btn btn-primary">+</button>
+            <button disabled={(count===stock)} onClick={(sumar)} type="button" className="btn btnCard">+</button>
         </div>
-        <button onClick={() => onAdd(count)} type="button" className="btn btn-primary">Agregar al Carrito</button>
+        <button onClick={() => onAdd(count)} type="button" className="btn btnCard btnAgregarAlCarrito">Agregar al Carrito</button>
     </div>
 
   )

@@ -1,0 +1,15 @@
+.itemDetailContainerImg{
+    width: 300px;
+    height: 300px;
+}
+
+.itemDetailContainerData .card-body {
+width: 500px;
+}
+.itemDetailContainerData .card-title{
+    font-size: xx-large;
+} 
+.itemDetailContainerData .card-text{
+    margin-top: 20px;
+} 
+
