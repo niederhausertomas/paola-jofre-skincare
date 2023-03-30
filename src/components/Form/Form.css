@@ -1,0 +1,22 @@
+.logoForm{
+    height: 300px;
+    border-radius: 50%;
+}
+
+.formulario{
+    min-height: 75vh;
+}
+
+
+.formularioInputs div input{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    background-color: #FBCCD2;
+    border: none;
+}
+
+.formularioInputs div button{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

@@ -13,6 +13,7 @@
 
 .btnCard{
     background-color: #FBCCD2;
+    border: none;
 }
 
 .btnCard:hover{

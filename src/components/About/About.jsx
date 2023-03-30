@@ -3,6 +3,7 @@ import React from 'react'
 const About = () => {
   return (
     <div className='container text-center'>
+        <br/><br/>
         <h2>Quienes somos</h2>
         <br/><br/>
         <p>Bienvenido al mundo de la belleza y cuidado de la piel con nuestra empresa dedicada a la venta de cremas de alta calidad. Nos enfocamos en proporcionar soluciones de cuidado de la piel efectivas que ayuden a rejuvenecer la piel, frenar el deterioro de la piel, humectar la piel y eliminar impurezas.<br/><br/>

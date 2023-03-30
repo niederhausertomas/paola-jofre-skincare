@@ -13,7 +13,7 @@ const Item = ({producto}) => {
             <h5 className="card-title">{producto.title}</h5>
             <p className="card-text">{producto.description}</p>
             <h6> Precio $ {producto.price}.-</h6>
-            <Link to={`/itemDetailContainer/${producto.id}`} className="btn btnCard">Ver</Link>
+            <Link to={`/item/${producto.id}`} className="btn btnCard">Ver</Link>
         </div>
     </div>
   )

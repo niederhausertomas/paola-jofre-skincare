@@ -1,8 +1,11 @@
 import React from 'react';
 import ItemCount from '../ItemCount/ItemCount';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const ItemDetail = ({productDetail}) => {
-    const onAdd = (count)=>{if(count>0){console.log("Agregado al carrito!")}}
+    const onAdd = (count)=>{if(count>0){setCant(count)}}
+    const [cant, setCant] = useState(0); 
 
     if (!productDetail) {
         return <div>Loading...</div>;
@@ -16,10 +19,18 @@ const ItemDetail = ({productDetail}) => {
                     <h5 className="card-title">{productDetail.title}</h5>
                     <p className="card-text">{productDetail.description}</p>
                     <h6 className="card-text">Precio $ {productDetail.price}.-</h6>
-                    <ItemCount 
-                    stock = {10} 
-                    onAdd = {onAdd}
-                    />
+                    {
+                        cant === 0 ? (
+                            <ItemCount 
+                            stock = {10} 
+                            onAdd = {onAdd}
+                            />
+                        ) : 
+                        <Link to={'/cart'} >
+                            <button className='btnCard'>Ir al carrito</button>
+                        </Link>
+                        
+                    }
                 </div>
             </div>
         </div>

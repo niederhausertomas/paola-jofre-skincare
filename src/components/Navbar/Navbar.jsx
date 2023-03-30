@@ -6,7 +6,7 @@ import { Link, NavLink } from 'react-router-dom';
 const Navbar = ({isInHeader}) => {
     if(isInHeader){ 
         return ( 
-        <nav className="navbarHeader navbar navbar-expand-lg bg-body-tertiary">
+        <nav className="navbarHeader navbar fixed-top navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
                 <Link to="/">
                     <img className='logoNavBar' src="../logo.jpg" alt="logo" />
