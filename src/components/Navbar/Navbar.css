@@ -5,13 +5,13 @@
     margin-bottom: 5px;
   }
   
-  .active{
-    background-color: #eba5ae81;
-    text-decoration: none;
-    border-radius: 50%;
-  }
+.active{
+  background-color: #eba5ae81;
+  text-decoration: none;
+  border-radius: 50%;
+}
   
-  .navbarHeader{
+.navbarHeader{
   border-bottom: 2px solid rgb(196, 193, 193);
-
+  height: 80px;
 }

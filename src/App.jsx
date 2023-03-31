@@ -8,10 +8,12 @@ import Main from './components/Main/Main';
 import Form from './components/Form/Form';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import CartProvider from './context/Cartcontext';
 
 function App() {
   return (
     <BrowserRouter>
+      <CartProvider>
         <Header />
           <Routes>
             <Route path='/' element={<Main/>} />
@@ -22,6 +24,7 @@ function App() {
             <Route path='/form' element={<Form/>}></Route>
           </Routes>
         <Footer />
+      </CartProvider>  
     </BrowserRouter>
   );
 }
