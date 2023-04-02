@@ -37,10 +37,16 @@ const ItemDetail = ({productDetail}) => {
                                 onAdd = {onAdd}
                                 />
                             ) : 
-                            <Link to={'/cart'} >
-                                <button className='btnCard'>Ir al carrito</button>
-                            </Link>
-                            
+                            <>
+                                <br/>
+                                <Link to={'/'} >
+                                    <button className='btn btnCard'>Seguir comprando</button>
+                                </Link>
+                                <br/> <br/>
+                                <Link to={'/cart'} >
+                                    <button className='btn btnCard'>Ir al carrito</button>
+                                </Link>
+                            </>
                         }
                     </div>
                 </div>

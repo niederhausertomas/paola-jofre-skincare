@@ -4,10 +4,10 @@ export const CartContext = createContext();
 
 const CartProvider = (props)=>{
     const [cart, setCart] = useState([]);
-    // suma productos al cart, si esta repetido tira alert(despues tengo que modificar eso)
+    // suma productos al cart, si ya esta, le suma la cantidad al que ya existe
     const addToCart = (item, cantidad) =>{
-        if(isInCart(item.id)){
-            console.log("ya esta en el array!!");
+        if(isInCart(item.id)){ 
+            cart[cart.findIndex(producto => producto.id === item.id)].cantidad += cantidad;
         }else{
             setCart([...cart, {...item, cantidad}]);
         }      
@@ -22,11 +22,22 @@ const CartProvider = (props)=>{
         return cantidad;
     }
 
+    // Para borrar todos los productos del carrito.
+    const deleteAll = () => {
+        setCart ([]);
+    }
+
+    // Para eliminar un solo item.
+    const deleteOne = (item)=>{
+        let position = cart[cart.findIndex(producto => producto.id === item.id)];
+        cart.spice(position,1);
+    }
+
     const isInCart = (id)=>{
         return cart.some((prod)=>prod.id === id);
     }
 
-    return <CartContext.Provider value={{cart, addToCart, cantProdEnCart}}>
+    return <CartContext.Provider value={{cart, addToCart, cantProdEnCart, deleteAll, deleteOne}}>
         {props.children}
     </CartContext.Provider>;
 };
