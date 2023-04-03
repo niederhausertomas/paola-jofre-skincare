@@ -1,0 +1,13 @@
+.cardCart{
+    background-color: tomato;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.cardCart img{
+    background-color: yellow;
+    height: 200px;
+    width: 200px;
+
+}

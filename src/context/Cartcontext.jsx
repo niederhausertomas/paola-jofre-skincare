@@ -12,7 +12,6 @@ const CartProvider = (props)=>{
             setCart([...cart, {...item, cantidad}]);
         }      
     }
-    console.log(cart)
     //cantidad de productos en el carrito
     const cantProdEnCart = ()=>{
         let cantidad = 0;
@@ -27,19 +26,56 @@ const CartProvider = (props)=>{
         setCart ([]);
     }
 
-    // Para eliminar un solo item.
-    const deleteOne = (item)=>{
-        let position = cart[cart.findIndex(producto => producto.id === item.id)];
-        cart.spice(position,1);
+    // Total de la compra.
+    const totalCompra = () =>{
+        let total =0;
+        for(let i=0;i<cart.length;i++){
+            total += (cart[i].cantidad * cart[i].price)
+        }
+        return total.toFixed(2);
     }
+
+    // Para eliminar un solo item.
+    const deleteOne = (id)=>{
+        let prodFiltrados = cart.filter(producto => producto.id !== id);
+        setCart(prodFiltrados)
+    }
+
+    // eliminar un producto de un item 
+    const restarUnoDeItem = (id) =>{
+        const cartActualizado = cart.map((producto) => {
+            if (producto.id === id) {
+                if( (producto.cantidad - 1) ===0){
+                    deleteOne(producto.id)
+                    // la funcion deleteOne aca no esta funcionando !!!!!!!!!!!!!!
+                    console.log(cart)
+                }else{
+                    return { ...producto, cantidad: producto.cantidad - 1 };
+                }
+            }
+            return producto;
+          });
+          setCart(cartActualizado);
+    }
+
+        // Sumar un producto de un item
+        const sumarUnoDeItem = (id) =>{
+            const cartActualizado = cart.map((producto) => {
+                if (producto.id === id) {
+                  return { ...producto, cantidad: producto.cantidad + 1 };
+                }
+                return producto;
+              });
+              setCart(cartActualizado);
+        }
 
     const isInCart = (id)=>{
         return cart.some((prod)=>prod.id === id);
     }
 
-    return <CartContext.Provider value={{cart, addToCart, cantProdEnCart, deleteAll, deleteOne}}>
-        {props.children}
-    </CartContext.Provider>;
+    return  <CartContext.Provider value={{cart, addToCart, cantProdEnCart, deleteAll, deleteOne, totalCompra, restarUnoDeItem, sumarUnoDeItem}}>
+                {props.children}
+            </CartContext.Provider>;
 };
 
 export default CartProvider;

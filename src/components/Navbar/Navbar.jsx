@@ -15,7 +15,7 @@ const Navbar = ({isInHeader}) => {
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse" id="navbarScroll">
+                <div className="collapse navbar-collapse bg-body-tertiary" id="navbarScroll">
                     <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style={{'--bs-scroll-height': '100px'}}>
                         <li className="nav-item">
                             <NavLink to="/category/men's clothing" className="nav-link" >men's clothing</NavLink>
@@ -27,14 +27,15 @@ const Navbar = ({isInHeader}) => {
                             <NavLink to='/category/electronics' className="nav-link" >electronics</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink  to='/about' className="nav-link" aria-current="page">About</NavLink>
+                            <NavLink  to='/about' className="nav-link " aria-current="page">About</NavLink>
                         </li>
-
+                        <li>
+                        </li>
                     </ul>
-                            <Link className='justify-content-end align-items-center text-decoration-none' to="/cart">
-                                <CartWidget/>
-                            </Link>
                 </div>
+                <Link className="nav-item text-decoration-none" to="/cart">
+                    <CartWidget/>
+                </Link>
             </div>
         </nav>);
         }
