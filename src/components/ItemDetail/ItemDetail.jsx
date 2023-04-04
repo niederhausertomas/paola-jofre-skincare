@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom';
 const ItemDetail = ({productDetail}) => {
     const [cant, setCant] = useState(0);
     const {addToCart} = useContext(CartContext);
+    
     const onAdd = (count)=>{
         if(count>0){
             setCant(count)
-            
             addToCart(productDetail, count );
         }}
     

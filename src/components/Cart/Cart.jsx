@@ -8,16 +8,17 @@ const Cart = () => {
   const {cart} = useContext(CartContext);
   const {deleteAll} = useContext(CartContext);
   const {totalCompra} = useContext(CartContext);
-  /*if (cart){
-     return <div>
+  if (cart.length === 0){
+     return <div className='container text-center'>
               <br></br> <br></br>
               <h2> No hay items en el carrito!</h2>
+              <br></br> <br></br>
             </div> 
-    } else {*/
+    } else {
    return (<div className='container d-flex justify-content-around align-items-center flex-wrap'>
       <br/><br/><br/>
       <h3 className='tituloCart '>
-        Detalle de la compra.-
+        Detalle de la compra:
       </h3>
       <h3>
         Total a pagar: {totalCompra()}
@@ -32,6 +33,6 @@ const Cart = () => {
       </div>
     </div>
   )}
-//}
+}
 
 export default Cart

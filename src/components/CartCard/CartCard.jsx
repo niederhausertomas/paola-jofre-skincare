@@ -22,7 +22,7 @@ const CartCard = ({producto}) => {
                     <button onClick={()=>restarUnoDeItem(producto.id)} className='btn btnCard'> - </button>
                     <button onClick={()=>sumarUnoDeItem(producto.id)} className='btn btnCard'> + </button>
                     <button onClick={()=>deleteOne(producto.id)} className='btn btnCard'>Eliminar item</button>
-                    <h6> total de este producto: {(producto.price * producto.cantidad)}.-</h6>
+                    <h6> total de este producto: $ {(producto.price * producto.cantidad).toFixed(2)}.-</h6>
                 </div>        
             </div>
         </div>

@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../../services/firebaseConfig';
 
 const ItemListContainer = () => {
 
@@ -9,27 +11,32 @@ const ItemListContainer = () => {
   const {categoryName} = useParams();
   const [loading, setLoading] = useState(true);
   
-  useEffect(()=>{
-  if(categoryName){
-    fetch('https://fakestoreapi.com/products')
-    .then((res) => res.json())
-    .then((res) =>{
-      const productosFiltrados = res.filter((res)=>res.category===categoryName)
-      setItems(productosFiltrados)
-      setLoading(false)
-    })
-    .catch((error)=>{
-      console.log(error);
-    })
-  }else{
-    fetch('https://fakestoreapi.com/products')
-    .then((res) => res.json())
-    .then((res) => setItems(res))
-    .catch((error)=>console.log(error))
-    .finally(()=> setLoading(false))
-  }
+  useEffect(() => {
+    const collectionProd = collection(db, 'productos');
 
-  },[categoryName]);
+    const ref = categoryName
+        ? query(collectionProd, where('category', '==', categoryName))
+        : collectionProd;
+
+    getDocs(ref)
+        .then((res) => {
+            const products = res.docs.map((prod) => {
+                return {
+                    id: prod.id,
+                    ...prod.data(),
+                };
+            });
+            setItems(products);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+        .finally(() => {
+            setLoading(false);
+        });
+
+    return () => setLoading(true);
+}, [categoryName]);
 
   return (
     <div className='container'>

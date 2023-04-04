@@ -7,8 +7,14 @@ const CartProvider = (props)=>{
     // suma productos al cart, si ya esta, le suma la cantidad al que ya existe
     const addToCart = (item, cantidad) =>{
         if(isInCart(item.id)){ 
-            cart[cart.findIndex(producto => producto.id === item.id)].cantidad += cantidad;
-        }else{
+            const cartActualizado = cart.map((prodDelCarrito) => {
+                if (prodDelCarrito.id === item.id) {
+                    prodDelCarrito.cantidad += cantidad
+                }
+                return prodDelCarrito;
+            });
+            setCart(cartActualizado);
+        } else {
             setCart([...cart, {...item, cantidad}]);
         }      
     }
@@ -48,7 +54,6 @@ const CartProvider = (props)=>{
                 if( (producto.cantidad - 1) ===0){
                     deleteOne(producto.id)
                     // la funcion deleteOne aca no esta funcionando !!!!!!!!!!!!!!
-                    console.log(cart)
                 }else{
                     return { ...producto, cantidad: producto.cantidad - 1 };
                 }
@@ -59,6 +64,7 @@ const CartProvider = (props)=>{
     }
 
         // Sumar un producto de un item
+        // falta agregar que no se pase del stock que hay del producto
         const sumarUnoDeItem = (id) =>{
             const cartActualizado = cart.map((producto) => {
                 if (producto.id === id) {
@@ -73,7 +79,15 @@ const CartProvider = (props)=>{
         return cart.some((prod)=>prod.id === id);
     }
 
-    return  <CartContext.Provider value={{cart, addToCart, cantProdEnCart, deleteAll, deleteOne, totalCompra, restarUnoDeItem, sumarUnoDeItem}}>
+    return  <CartContext.Provider value={{
+                cart,
+                addToCart,
+                cantProdEnCart,
+                deleteAll,
+                deleteOne,
+                totalCompra,
+                restarUnoDeItem,
+                sumarUnoDeItem}}>
                 {props.children}
             </CartContext.Provider>;
 };
