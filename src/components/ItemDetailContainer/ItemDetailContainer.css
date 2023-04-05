@@ -13,3 +13,13 @@ width: 500px;
     margin-top: 20px;
 } 
 
+
+@media only screen and (max-width: 500px) {
+    * {
+        overflow-x: hidden; }
+    .itemDetailContainerData .card-body {
+        width: 100%;
+        }
+    }
+
+/*itemDetailContainerData*/
