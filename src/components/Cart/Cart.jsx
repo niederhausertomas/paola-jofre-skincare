@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import './Cart.css';
 import { CartContext } from '../../context/Cartcontext';
 import CartCard from '../CartCard/CartCard';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
 
@@ -23,7 +24,8 @@ const Cart = () => {
       <h3>
         Total a pagar: {totalCompra()}
       </h3>
-      <button onClick={()=>deleteAll()} className="btn btnCard">Borrar Todos los productos</button>
+      <button onClick={()=>deleteAll()} className="btn btnCard">Vaciar carrito</button>
+      <Link to={'/form'} className="btn btnCard">Finalizar compra</Link>
       <div className='container d-flex justify-content-evenly flex-wrap'>
         {
           cart.map((producto)=>{
