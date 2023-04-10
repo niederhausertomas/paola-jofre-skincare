@@ -12,5 +12,9 @@
     width: 28px;
     height: 28px;
     cursor: pointer;
-    fill: rgb(104, 105, 105);
+    fill: rgb(109, 107, 107);
 }
+
+.cart:hover{
+    fill: rgb(85, 84, 84);
+  }

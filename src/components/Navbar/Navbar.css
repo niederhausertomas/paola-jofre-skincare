@@ -1,5 +1,5 @@
 .logoNavBar{
-    height: 60px;
+    height: 50px;
     border-radius: 50%;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -13,11 +13,16 @@
   
 .navbarHeader{
   border-bottom: 2px solid rgb(196, 193, 193);
-  height: 80px;
 }
 
-@media only screen and (max-width: 500px) {
-  .navbar{
-    height: 100px;
-  }
+.footer{
+  border-top: 2px solid rgb(196, 193, 193);
+}
+
+.footer svg{
+  fill: rgb(109, 107, 107);
+}
+
+.footer svg:hover{
+  fill: rgb(85, 84, 84);
 }

@@ -40,6 +40,7 @@ const ItemListContainer = () => {
 
   return (
     <div className='container'>
+      <br/><br/><br/><br/>
       { loading ? <BounceLoader className='container' color="hsla(293, 80%, 79%, 1)" /> : <ItemList items={items}/>
       }
     </div>

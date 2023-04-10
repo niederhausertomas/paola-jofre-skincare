@@ -22,7 +22,7 @@ const ItemDetail = ({productDetail}) => {
 
     return (
         <div>
-            <br/><br/>
+            <br/><br/><br/><br/>
             <div className='container d-flex justify-content-evenly flex-wrap align-items-center' >
                 <img src={productDetail.image} className="itemDetailContainerImg" alt="imagen de una crema"/>
                 <div className="itemDetailContainerData text-center">

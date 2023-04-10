@@ -35,7 +35,7 @@ const ItemDetailContainer = () => {
 
     return (
         <div className='container d-flex justify-content-evenly flex-wrap'>
-          { loading ? <BounceLoader className='container' color="hsla(293, 80%, 79%, 1)" /> : <ItemDetail productDetail ={item} />}
+            { loading ? <BounceLoader className='container' color="hsla(293, 80%, 79%, 1)" /> : <ItemDetail productDetail ={item} />}
         </div>
     )
 }
