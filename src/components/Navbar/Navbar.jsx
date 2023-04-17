@@ -20,7 +20,7 @@ const Navbar = ({isInHeader}) => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                    <Link to="/category/men's clothing" className="nav-link" >men's clothing</Link>
+                    <Link to="/category/Lips" className="nav-link" >Lips</Link>
                 </li>
                 <li className="nav-item">
                     <Link to='/category/jewelery' className="nav-link" >jewelery</Link>
