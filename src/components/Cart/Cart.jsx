@@ -17,7 +17,7 @@ const Cart = () => {
             </div> 
     } else {
    return (<div className='container d-flex justify-content-around align-items-center flex-wrap'>
-      <br/><br/><br/>
+      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       <h3 className='tituloCart '>
         Detalle de la compra:
       </h3>
